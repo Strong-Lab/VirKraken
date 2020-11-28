@@ -101,21 +101,21 @@ The paramters of VirKraken are:
 * -o: Rename output files \[optional]
 
 
-**Running VirKraken** 
+### Running VirKraken 
 
-VirKraken without a sequencing file and renaming the output
+#### VirKraken without a sequencing file and renaming the output
 ```
 virkraken -f Kraken_Output.txt -o Viral_Sequences
 ```
 The script above will return Viral_Sequences.csv which will contain a column of sequnce headers and NCBI TaxIDs. All returned sequence headers are viral. 
 
-VirKraken to filter a seqeunce file
+#### VirKraken to filter a seqeunce file
 ```
 virkraken -f Kraken_Output.txt -c final.contigs.fa -o Viral_Sequences
 ```
 The script above will return Viral_Sequences.csv and Viral_Sequences.fasta. All returned sequences are viral. VirKraken will filter the input fasta for sequence headers matching the predicted viral headers. 
 
-VirKraken to remove viral sequences
+#### VirKraken to remove viral sequences
 ```
 virkraken -r -f Kraken_Output.txt -c final.contigs.fa -o Filtered_Sequences
 ```
