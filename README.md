@@ -160,7 +160,7 @@ Project Link: [https://github.com/Strong-Lab/VirKraken](https://github.com/Stron
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Img Shields](https://shields.io)
+* Jo Hendrix
 
 
 
@@ -169,14 +169,13 @@ Project Link: [https://github.com/Strong-Lab/VirKraken](https://github.com/Stron
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Strong-Lab/VirKraken.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/ontributors/Strong-Lab/VirKraken/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/Strong-Lab/VirKraken.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/Strong-Lab/VirKraken/network/members
 [stars-shield]: https://img.shields.io/github/stars/Strong-Lab/VirKraken.svg?style=for-the-badge
 [stars-url]: https://github.com/Strong-Lab/VirKraken/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Strong-Lab/VirKraken.svg?style=for-the-badge
 [issues-url]: https://github.com/Strong-Lab/VirKraken/issues
 [license-shield]: https://img.shields.io/github/license/Strong-Lab/VirKraken.svg?style=for-the-badge
 [license-url]: https://github.com/Strong-Lab/VirKraken/LICENSE.txt
-[product-screenshot]: images/screenshot.png
 
