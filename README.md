@@ -16,8 +16,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/Strong-Lab/VirKraken">
+    <img src="images/logo.jpg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">VirKraken</h3>
@@ -25,14 +25,9 @@
   <p align="center">
     An extension to identify viral elements in Kraken 2 outputs
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/Strong-Lab/VirKraken/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Strong-Lab/VirKraken/issues">Request Feature</a>
   </p>
 </p>
 
@@ -65,8 +60,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About VirKraken
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 This project was created to identify viral contigs using [Kraken 2](https://example.com) in the publication [Cite](https://example.com). This extension allows a user to get the headers of viral elements and provides the ability to retain only those headers or remove them if the sequencing file is provided. 
 
