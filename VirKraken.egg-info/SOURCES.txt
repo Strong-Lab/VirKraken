@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+VirKraken.egg-info/PKG-INFO
+VirKraken.egg-info/SOURCES.txt
+VirKraken.egg-info/dependency_links.txt
+VirKraken.egg-info/requires.txt
+VirKraken.egg-info/top_level.txt
+bin/virkraken
+virkraken/__init__.py
+virkraken/data/TaxID.csv

@@ -1,0 +1,93 @@
+#!python
+from argparse import ArgumentParser
+import pandas as pd
+from Bio import SeqIO
+import gzip
+import importlib_resources
+
+
+#get the default kraken2 output and the file to save translated names file to
+parser = ArgumentParser()
+parser.add_argument("-f", "--file", help="Kraken output file to be translated")
+parser.add_argument("-c", "--contig_file", default=None, help="Contig file to filter")
+parser.add_argument("-r", "--remove_viral", action='store_true', help="Remove viral contigs from fasta")
+parser.add_argument('-o', "--output", default='Viral_Contigs',help="Output CSV File Name")
+
+args = parser.parse_args()
+
+## Load Database from resources
+my_resources = importlib_resources.files("virkraken")
+data = (my_resources / "data" / "TaxID.csv")
+
+## Read data
+df2 = pd.read_csv(data, sep=",", low_memory=False)
+df = pd.read_csv(args.file, sep="\t", header=None)
+
+df = df[[0,1,2]]
+df.columns = ["Classified", "ContigID", "TaxID"]
+
+df_Classified = df[df["Classified"]=="C"]
+q = df_Classified.merge(df2, left_on="TaxID", right_on='tax_id')
+q2=q[q["superkingdom"]=="Viruses"]
+q2 = q2[["ContigID", 'TaxID']]
+
+
+print("Writing csv file")
+outfile = args.output+".csv"
+q2.to_csv(outfile, index=False)
+
+contigs = list(q2['ContigID'])
+
+
+
+## Filter fasta file by list of headers
+
+
+def zipped_filter_fasta(fasta_file, list_of_headers, outputs):
+    with gzip.open(fasta_file, "rt") as handle:
+        for record in SeqIO.parse(handle, "fasta"):
+            if args.remove_viral != False:
+                with gzip.open(outputs, "wt") as out_file:
+                    if record.id in list_of_headers:
+                        continue
+                    else:
+                        SeqIO.write(record, out_file, "fasta")
+            else:
+                with gzip.open(outputs, "wt") as out_file:
+                    if record.id in list_of_headers:
+                        SeqIO.write(record, out_file, "fasta")
+                    else:
+                        continue
+
+
+def filter_fasta(fasta_file, list_of_headers, outputs):
+    fasta_sequences = SeqIO.parse(open(fasta_file),'fasta')
+    if args.remove_viral != False:
+        with open(outputs, "w") as out_file:
+            for fasta in fasta_sequences:
+                if fasta.id in list_of_headers:
+                    continue
+                else:
+                    SeqIO.write(fasta, out_file, "fasta")
+    else:
+        with open(outputs, "w") as out_file:
+            for fasta in fasta_sequences:
+                if fasta.id in list_of_headers:
+                    SeqIO.write(fasta, out_file, "fasta")
+                else:
+                    continue
+                    
+                    
+if args.contig_file != None:
+    print("Writing filtered fasta")
+    outfile = args.output+".fasta"
+    extension = args.contig_file.split(".")[-1]
+    if extension=="gz":
+        zipped_filter_fasta(args.contig_file, contigs, outfile)
+    else:
+        try:
+            filter_fasta(args.contig_file, contigs, outfile)
+        except:
+            print("Extension or file format not recognized. Please use either fasta format and extensions or .gz for a zipped file")
+
+print("Done! Thanks for using VirKraken!")
