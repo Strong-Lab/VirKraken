@@ -89,15 +89,37 @@ pip install virkraken
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+VirKraken works as a command line script. Once install via pip, virkraken the command can be accessed. To get the help screen type:
+```
+virkraken -h
+```
 
-VirKraken works as a command line script. 
-_Beginner_
+The paramters of VirKraken are:
+* -f: Kraken output file \[required]
+* -c: Seqeuncing file to parse \[optional]
+* -r: Remove viral elements flag
+* -o: Rename output files \[optional]
 
 
+**Running VirKraken** 
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+VirKraken without a sequencing file and renaming the output
+```
+virkraken -f Kraken_Output.txt -o Viral_Sequences
+```
+The script above will return Viral_Sequences.csv which will contain a column of sequnce headers and NCBI TaxIDs. All returned sequence headers are viral. 
 
+VirKraken to filter a seqeunce file
+```
+virkraken -f Kraken_Output.txt -c final.contigs.fa -o Viral_Sequences
+```
+The script above will return Viral_Sequences.csv and Viral_Sequences.fasta. All returned sequences are viral. VirKraken will filter the input fasta for sequence headers matching the predicted viral headers. 
 
+VirKraken to remove viral sequences
+```
+virkraken -r -f Kraken_Output.txt -c final.contigs.fa -o Filtered_Sequences
+```
+Seqeunce headers that are assigned a viral designation are removed from the resulting fasta file output. 
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -130,7 +152,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Cody Glickman - [@glickman_Cody](https://twitter.com/your_username) - email@example.com
+Cody Glickman - [@glickman_Cody](https://twitter.com/glickman_cody) - glickman.cody@gmail.com
 
 Project Link: [https://github.com/Strong-Lab/VirKraken](https://github.com/Strong-Lab/VirKraken)
 
